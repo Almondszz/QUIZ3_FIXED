@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="mb-0">Job Openings</h2>
+    <div>
+      {% if not user.is_authenticated %}
+        <a href="{% url 'register' %}" class="btn btn-primary">Register</a>
+      {% else %}
+        <a href="{% url 'create_job' %}" class="btn btn-success">Create Job</a>
+      {% endif %}
+    </div>
+  </div>
+
+  <form method="get" action="" class="input-group mb-4" style="max-width: 400px;">
+    <input type="text" name="q" class="form-control" placeholder="Search jobs..." value="{{ request.GET.q }}">
+    <button type="submit" class="btn btn-outline-secondary">Search</button>
+  </form>
+
+  <ul class="list-group">
+    {% for job in jobs %}
+      <li class="list-group-item d-flex align-items-center">
+        {% if job.image %}
+          <img src="{{ job.image.url }}" alt="{{ job.job_title }}" width="60" height="60" class="me-3 rounded">
+        {% endif %}
+        <div>
+          <a href="{% url 'job_detail' job.pk %}" class="text-decoration-none">
+            <strong>{{ job.job_title }}</strong> ({{ job.location }})<br>
+            <small>{{ job.job_description|truncatewords:15 }}</small>
+          </a>
+        </div>
+      </li>
+    {% empty %}
+      <li class="list-group-item">No jobs found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

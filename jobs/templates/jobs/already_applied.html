@@ -1,0 +1,5 @@
+{% extends 'base.html' %}
+{% block content %}
+  <p>You have already applied for {{ job.job_title }}.</p>
+  <a href="{% url 'job_list' %}">Back to jobs</a>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome | Job Portal{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Job Portal</h1>
+    <div>
+        <a href="{% url 'job_list' %}">Jobs</a>
+    </div>
+{% endblock %}
