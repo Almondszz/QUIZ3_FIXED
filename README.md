@@ -27,8 +27,8 @@ A simple job portal built with Django, supporting job posting, image uploads, us
 ### 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/Almondszz/Quiz3.git
-cd <Quiz3>
+git clone https://github.com/Almondszz/QUIZ3_FIXED.git
+cd <QUIZ3_FIXED>
 ```
 
 ### 2. **Create and Activate Virtual Environment**
